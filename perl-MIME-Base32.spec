@@ -1,17 +1,18 @@
-%define module   MIME-Base32
-%define version    1.01
-%define release    %mkrel 1
+%define upstream_name    MIME-Base32
+%define upstream_version 1.01
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:    Base32 encoder / decoder
-Url:        http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/MIME/%{module}-%{version}.tar.gz
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/MIME/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Encode data similar way like MIME::Base64 does.
@@ -20,7 +21,7 @@ Main purpose is to create encrypted text used as id or key entry
 typed-or-submitted by user. It is upper/lowercase safe (not sensitive).
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -41,4 +42,3 @@ rm -rf %buildroot
 %doc README
 %{_mandir}/man3/*
 %perl_vendorlib/MIME
-
