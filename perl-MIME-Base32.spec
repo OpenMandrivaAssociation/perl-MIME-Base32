@@ -1,5 +1,5 @@
 %define upstream_name    MIME-Base32
-%define upstream_version 1.01
+%define upstream_version 1.02a
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -21,14 +21,15 @@ Main purpose is to create encrypted text used as id or key entry
 typed-or-submitted by user. It is upper/lowercase safe (not sensitive).
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+#setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-1.02
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-make test
+%make test
 
 %install
 rm -rf %buildroot
@@ -39,6 +40,6 @@ rm -rf %buildroot
 
 %files
 %defattr(-,root,root)
-%doc README
+%doc README META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/MIME
