@@ -1,15 +1,13 @@
 %define upstream_name    MIME-Base32
-%define upstream_version 1.02a
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	1.02a
+Release:	5
 
 Summary:	Base32 encoder / decoder
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/MIME/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/MIME/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -22,7 +20,7 @@ Main purpose is to create encrypted text used as id or key entry
 typed-or-submitted by user. It is upper/lowercase safe (not sensitive).
 
 %prep
-#setup -q -n %{upstream_name}-%{upstream_version}
+#setup -q -n %{upstream_name}-%{version}
 %setup -q -n %{upstream_name}-1.02
 
 %build
@@ -48,9 +46,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.10.0-1mdv2011.0
 + Revision: 403860
-- rebuild using %%perl_convert_version
-
-* Tue Sep 09 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.0
+- rebuild using %1.02a Tue Sep 09 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.0
 + Revision: 283306
 - import perl-MIME-Base32
 
