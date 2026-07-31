@@ -1,7 +1,7 @@
 %define upstream_name    MIME-Base32
 Name:		perl-%{upstream_name}
-Version:	1.02a
-Release:	5
+Version:	1.303
+Release:	1
 
 Summary:	Base32 encoder / decoder
 License:	GPL+ or Artistic
@@ -21,7 +21,7 @@ typed-or-submitted by user. It is upper/lowercase safe (not sensitive).
 
 %prep
 #setup -q -n %{upstream_name}-%{version}
-%setup -q -n %{upstream_name}-1.02
+%setup -q -n MIME-Base32-1.303
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
