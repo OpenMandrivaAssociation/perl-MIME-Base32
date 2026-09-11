@@ -11,6 +11,7 @@ Source0:	http://www.cpan.org/modules/by-module/MIME/%{upstream_name}-%{version}.
 
 BuildRequires:	make
 BuildRequires:	perl-devel
+BuildRequires:	perl(Test::More)
 BuildArch:	noarch
 
 %description
